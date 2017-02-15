@@ -1,5 +1,5 @@
 #!/bin/bash -e
-export PRE_JOB=runsh1
+export PRE_JOB=push_image_tag
 export PRE_JOB_UP=$(echo ${PRE_JOB//-/} | awk '{print toupper($0)}')
 echo $PRE_JOB_UP
 
