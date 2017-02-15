@@ -48,7 +48,7 @@ echo $MY_JOBNAME_PREVIOUS_STATE
 echo $MY_JOBNAME_PATH
 echo $MY_JOBNAME_MESSAGE
 
-export RES_MY_DOCKERHUB_INTEGRATIONRESO=my-docker-int
+export RES_MY_DOCKERHUB_INTEGRATIONRESO=ship_dh
 export RES_MY_DOCKERHUB_INTEGRATIONRESO_UP=$(echo ${RES_MY_DOCKERHUB_INTEGRATIONRESO//-/} | awk '{print toupper($0)}')
 export MY_DOCKERHUB_INTEGRATION=$RES_MY_DOCKERHUB_INTEGRATIONRESO_UP"_INTEGRATION" #this is fetches docker integration details like username, email or password
 
