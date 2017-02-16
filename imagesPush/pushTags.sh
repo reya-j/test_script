@@ -36,9 +36,9 @@ set_context() {
   echo "VAN_RES_REPO_STATE=$VAN_RES_REPO_STATE"
 
   echo "VAN_REPO_RESO_VERSION=$VAN_VERSION"
- # echo "DH_USERNAME=$DH_USERNAME"
- # echo "DH_PASSWORD=${#DH_PASSWORD}" #show only count
- # echo "DH_EMAIL=$DH_EMAIL"
+  echo "VAN_DH_USERNAME=$VAN_DH_USERNAME"
+  echo "VAN_DH_PASSWORD=${#VAN_DH_PASSWORD}" #show only count
+  echo "VAN_DH_EMAIL=$VAN_DH_EMAIL"
 }
 
 get_image_list() {
