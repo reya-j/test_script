@@ -16,7 +16,7 @@ export VAN_RES_DH_INT_STR=$VAN_RES_DH_UP"_INTEGRATION"
 
 # since resources here have dashes Shippable replaces them and UPPER cases them
 export VAN_RES_REPO_UP=$(echo $VAN_RES_REPO | awk '{print toupper($0)}')
-export VAN_RES_REPO_STATE=$(eval echo "$"$RES_REPO_UP"_STATE")
+export VAN_RES_REPO_STATE=$(eval echo "$"$VAN_RES_REPO_UP"_STATE")
 
 
 set_context() {
