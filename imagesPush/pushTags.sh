@@ -21,7 +21,7 @@ export VAN_RES_REPO_STATE=$(eval echo "$"$VAN_RES_REPO_UP"_STATE")
 
 set_context() {
   export VAN_VERSION=$(eval echo "$"$VAN_RES_VER_UP"_VERSIONNAME")
-  export VAN_DH_USERNAME=$(eval echo "$"VAN_$RES_DH_INT_STR"_USERNAME")
+  export VAN_DH_USERNAME=$(eval echo "$"$VAN_RES_DH_INT_STR"_USERNAME")
   export VAN_DH_PASSWORD=$(eval echo "$"$VAN_RES_DH_INT_STR"_PASSWORD")
   export VAN_DH_EMAIL=$(eval echo "$"$VAN_RES_DH_INT_STR"_EMAIL")
 
