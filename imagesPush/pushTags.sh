@@ -11,11 +11,11 @@ export VAN_RES_REPO="script_repo"
 export VAN_RES_VER_UP=$(echo ${VAN_RES_VER//-/} | awk '{print toupper($0)}')
 
 # get dockerhub EN string
-export VAN_RES_DH_UP=$(echo $RES_DH | awk '{print toupper($0)}')
-export VAN_RES_DH_INT_STR=$RES_DH_UP"_INTEGRATION"
+export VAN_RES_DH_UP=$(echo $VAN_RES_DH | awk '{print toupper($0)}')
+export VAN_RES_DH_INT_STR=$VAN_RES_DH_UP"_INTEGRATION"
 
 # since resources here have dashes Shippable replaces them and UPPER cases them
-export VAN_RES_REPO_UP=$(echo $RES_REPO | awk '{print toupper($0)}')
+export VAN_RES_REPO_UP=$(echo $VAN_RES_REPO | awk '{print toupper($0)}')
 export VAN_RES_REPO_STATE=$(eval echo "$"$RES_REPO_UP"_STATE")
 
 
@@ -28,7 +28,7 @@ set_context() {
  # echo "CURR_JOB=$CURR_JOB"
  # echo "RES_VER=$RES_VER"
  # echo "RES_DH=$RES_DH"
- # echo "RES_REPO=$RES_REPO"
+  echo "VAN_RES_REPO=$VAN_RES_REPO"
  # echo "RES_VER_UP=$RES_VER_UP"
  # echo "RES_DH_UP=$RES_DH_UP"
  # echo "RES_DH_INT_STR=$RES_DH_INT_STR"
