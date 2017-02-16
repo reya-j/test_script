@@ -32,7 +32,7 @@ set_context() {
  # echo "RES_DH_UP=$RES_DH_UP"
  # echo "RES_DH_INT_STR=$RES_DH_INT_STR"
  # echo "RES_REPO_UP=$RES_REPO_UP"
-  #echo "RES_REPO_STATE=$RES_REPO_STATE"
+  echo "VAN_RES_REPO_STATE=$VAN_RES_REPO_STATE"
 
   echo "VAN_REPO_RESO_VERSION=$VAN_VERSION"
  # echo "DH_USERNAME=$DH_USERNAME"
@@ -41,7 +41,7 @@ set_context() {
 }
 
 get_image_list() {
-  pushd "$VAN_RES_REPO_UP/imagesPush"
+  pushd "$VAN_RES_REPO_STATE/imagesPush"
   export VAN_IMAGE_NAMES=$(cat imgs.txt)
   export VAN_IMAGE_NAMES_SPACED=$(eval echo $(tr '\n' ' ' < imgs.txt))
   popd
