@@ -5,7 +5,7 @@
 export VAN_CURR_JOB="push_image_tag"
 export VAN_RES_VER="ship_ver"
 export VAN_RES_DH="ship_dh"
-export VAN_RES_REPO="script_repo"
+export VAN_RES_REPO="scriptami_repo"
 
 # since resources here have dashes Shippable replaces them and UPPER cases them
 export VAN_RES_VER_UP=$(echo ${VAN_RES_VER//-/} | awk '{print toupper($0)}')
