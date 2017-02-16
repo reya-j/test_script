@@ -41,7 +41,7 @@ set_context() {
 }
 
 get_image_list() {
-  pushd "$VAN_RES_REPO_STATE/imagesPush"
+  pushd "$VAN_RES_REPO_UP/imagesPush"
   export VAN_IMAGE_NAMES=$(cat imgs.txt)
   export VAN_IMAGE_NAMES_SPACED=$(eval echo $(tr '\n' ' ' < imgs.txt))
   popd
