@@ -1,8 +1,8 @@
-shippabledocker/sample_ship_plv2Nod
-shippabledocker/sample_ship_plv2Php
-shippabledocker/sample_ship_plv2Jav
-shippabledocker/sample_ship_plv2Pyt
-shippabledocker/sample_ship_nod
-shippabledocker/sample_ship_php
-shippabledocker/sample_ship_jav
-shippabledocker/sample_ship_pyt
+shippabledocker/ship_plv2nod
+shippabledocker/ship_plv2php
+shippabledocker/ship_plv2jav
+shippabledocker/ship_plv2pyt
+shippabledocker/plv2nod
+shippabledocker/plv2php
+shippabledocker/plv2jav
+shippabledocker/plv2pyt
