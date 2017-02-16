@@ -18,6 +18,7 @@ export VAN_RES_DH_INT_STR=$RES_DH_UP"_INTEGRATION"
 export VAN_RES_REPO_UP=$(echo $RES_REPO | awk '{print toupper($0)}')
 export VAN_RES_REPO_STATE=$(eval echo "$"$RES_REPO_UP"_STATE")
 
+
 set_context() {
   export VAN_VERSION=$(eval echo "$"$VAN_RES_VER_UP"_VERSIONNAME")
   export VAN_DH_USERNAME=$(eval echo "$"VAN_$RES_DH_INT_STR"_USERNAME")
@@ -31,7 +32,7 @@ set_context() {
  # echo "RES_VER_UP=$RES_VER_UP"
  # echo "RES_DH_UP=$RES_DH_UP"
  # echo "RES_DH_INT_STR=$RES_DH_INT_STR"
- # echo "RES_REPO_UP=$RES_REPO_UP"
+  echo "RES_REPO_UP=$RES_REPO_UP"
   echo "VAN_RES_REPO_STATE=$VAN_RES_REPO_STATE"
 
   echo "VAN_REPO_RESO_VERSION=$VAN_VERSION"
