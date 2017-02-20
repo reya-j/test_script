@@ -108,41 +108,10 @@ dockerhub_login() {
   sudo docker login -u $VAN_DH_USERNAME -p $VAN_DH_PASSWORD -e $VAN_DH_EMAIL
 }
 
-pull_tag_push_images() {
-  for VAN_IMAGE_NAME in $VAN_IMAGE_NAMES; do
-    __pull_tag_push_image $VAN_IMAGE_NAME
-  done
-}
-
-__pull_tag_push_image() {
-  if [[ -z "$1" ]]; then
-    return 0
-  fi
-
-  VAN_IMAGE_NAME=$1
-  VAN_PULL_NAME=$VAN_IMAGE_NAME":tip"
-  VAN_PUSH_NAME=$VAN_IMAGE_NAME":"$VAN_VERSION
-
-  echo "pulling image $VAN_PULL_NAME"
-  sudo docker pull $VAN_PULL_NAME
-  sudo docker tag -f $VAN_PULL_NAME $VAN_PUSH_NAME
-  echo "pushing image $VAN_PUSH_NAME"
-  sudo docker push $VAN_PUSH_NAME
-
-  # removing the images to save space
-  if [ $VAN_IMAGE_NAME!="shippabledocker/sample_ship_nod" -a $VAN_IMAGE_NAME!="shippabledocker/sample_ship_php" \
-  -a $VAN_IMAGE_NAME!="shippabledocker/sample_ship_jav" -a $VAN_IMAGE_NAME!="shippabledocker/sample_ship_pyt" ]; then
-    echo "Removing image VAN_IMAGE_NAME"
-    sudo docker rmi -f $VAN_PUSH_NAME
-    sudo docker rmi -f $VAN_PULL_NAME
-  fi
-}
-
 main() {
   set_context
   get_image_list
   dockerhub_login
-  pull_tag_push_images
 }
 
 main
