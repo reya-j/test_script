@@ -16,6 +16,32 @@ export VAN_RES_DH_INT_STR=$VAN_RES_DH_UP"_INTEGRATION"
 export VAN_RES_REPO_UP=$(echo $VAN_RES_REPO | awk '{print toupper($0)}')
 export VAN_RES_REPO_STATE=$(eval echo "$"$VAN_RES_REPO_UP"_STATE")
 
+echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ABOUT JOBS AND BUILDS ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo RESO_ID_RUNSH_REPO=$RESOURCE_ID
+echo MY_JOB_NAME=$JOB_NAME
+echo MY_JOB_TYPE=$JOB_TYPE
+
+echo "MY_BUILD_ID=$BUILD_ID"
+echo "MY_BUILD_NUMBER=$BUILD_NUMBER"
+echo "MY_BUILD_JOB_ID=$BUILD_JOB_ID"
+echo "MY_BUILD_JOB_NUMBER=$BUILD_JOB_NUMBER"
+
+echo MY_JOB_STATE=$JOB_STATE
+echo MY_JOB_PREVIOUS_STATE=$JOB_PREVIOUS_STATE
+echo MY_JOB_MESSAGE_PATH=$JOB_MESSAGE
+
+export MY_JOBNAME_PREVIOUS_STATE=$(eval echo "$"$JOB_NAME"_PREVIOUS_STATE")
+export MY_JOBNAME_STATE=$(eval echo "$"$JOB_NAME"_STATE")
+export MY_JOBNAME_PATH=$(eval echo "$"$JOB_NAME"_PATH")
+export MY_JOBNAME_MESSAGE=$(eval echo "$"$JOB_NAME"_MESSAGE")
+
+echo $MY_JOBNAME_STATE
+echo $MY_JOBNAME_PREVIOUS_STATE
+echo $MY_JOBNAME_PATH
+echo $MY_JOBNAME_MESSAGE
+
+echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT JOBS AND BUILDS ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
 
 set_context() {
   export VAN_VERSION=$(eval echo "$"$VAN_RES_VER_UP"_VERSIONNAME")
