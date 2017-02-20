@@ -98,8 +98,8 @@ get_image_list() {
   echo "MY_IMAGE_NAMES_SPACED=$VAN_IMAGE_NAMES_SPACED"
 
   # create a state file so that next job can pick it up
-  echo "versionName=$VAN_REPO_RESO_VERSION" > /build/state/$CURR_JOB.env #adding version state
-  echo "VAN_IMAGE_NAMES=$VAN_IMAGE_NAMES_SPACED" >> /build/state/$CURR_JOB.env
+  echo "versionName=$VAN_REPO_RESO_VERSION" > /build/state/$VAN_CURR_JOB.env #adding version state
+  echo "VAN_IMAGE_NAMES=$VAN_IMAGE_NAMES_SPACED" >> /build/state/$VAN_CURR_JOB.env
 }
 
 dockerhub_login() {
