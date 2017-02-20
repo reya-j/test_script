@@ -88,7 +88,18 @@ set_context() {
   echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT INTEGRATION ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 }
+echo "<<<<<<<<<<<<<<<<<<<<<<========== PARAMS =============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+export RES_PARAMS="test_params1"
+export RES_PARAMS_UP=$(echo $RES_PARAMS | awk '{print toupper($0)}')
+export RES_PARAMS_STR=$RES_PARAMS_UP"_PARAMS"
+export USER_PARAM=$(eval echo "$"$RES_PARAMS_STR"_TEST")
+export SEC_PARAM=$(eval echo "$"$RES_PARAMS_STR"_DEV")
 
+echo RES_PARAMS_STR=$RES_PARAMS_STR
+echo USER_PARAM=$USER_PARAM
+echo SEC_PARAM=$SEC_PARAM
+
+echo "<<<<<<<<<<<<<<<<<<<<<<========== those were my env's ===============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 get_image_list() {
   pushd "$VAN_RES_REPO_STATE/imagesPush"
   export VAN_IMAGE_NAMES=$(cat imgs.txt)
