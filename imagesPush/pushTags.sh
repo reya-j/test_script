@@ -1,32 +1,5 @@
 #!/bin/bash -e
 
-echo 'test-script for runsh1'     
-export CURR_REPO_RESO="scriptami_repo"
-export CURR_REPO_RESO_UP=$(echo ${CURR_REPO_RESO//-/} | awk '{print toupper($0)}')
-
-echo "<===About resource repo===>"
-export REPO_RESO_VERSION=$(eval echo "$"$CURR_REPO_RESO_UP"_VERSIONNUMBER")
-export MY_REPO_BRANCH=$(eval echo "$"$CURR_REPO_RESO_UP"_BRANCH")
-export MY_REPO_COMMIT=$(eval echo "$"$CURR_REPO_RESO_UP"_COMMIT")
-export MY_REPO_COMMIT_MESSAGE=$(eval echo "$"$CURR_REPO_RESO_UP"_COMMIT_MESSAGE")
-export MY_REPO_COMMITTER=$(eval echo "$"$CURR_REPO_RESO_UP"_COMMITTER")
-#export MY_REPO_PULL_REQUEST=$(eval echo "$"$CURR_REPO_RESO_UP"_PULL_REQUEST")
-#export MY_REPO_BASE_BRANCH=$(eval echo "$"$CURR_REPO_RESO_UP"_BASE_BRANCH")
-#export MY_REPO_HEAD_BRANCH=$(eval echo "$"$CURR_REPO_RESO_UP"_HEAD_BRANCH")
-
-echo REPO_RESOURCE_VERSION=$REPO_RESO_VERSION
-echo MY_BRANCH=$MY_REPO_BRANCH
-echo MY_COMMIT=$MY_REPO_COMMIT
-echo MY_COMMIT_MESSAGE=$MY_REPO_COMMIT_MESSAGE
-echo MY_RESO_COMMITER=$MY_REPO_COMMITTER
-#echo MY_RESO_PULL_REQUEST=$MY_REPO_PULL_REQUEST
-#echo MY_RESO_BASE_BRANCH=$MY_REPO_BASE_BRANCH
-#echo MY_RESO_HEAD_BRANCH=$MY_REPO_HEAD_BRANCH
-
-echo "<===done for reso repo===>"
-
-
-
 export VAN_CURR_JOB="push_image_tag"
 export VAN_RES_VER="ship_ver"
 export VAN_RES_DH="ship_dh"
@@ -46,6 +19,15 @@ export VAN_RES_REPO_STATE=$(eval echo "$"$VAN_RES_REPO_UP"_STATE")
 
 set_context() {
   export VAN_VERSION=$(eval echo "$"$VAN_RES_VER_UP"_VERSIONNAME")
+  
+  export MY_REPO_BRANCH=$(eval echo "$"$VAN_RES_REPO_UP"_BRANCH")
+  export MY_REPO_COMMIT=$(eval echo "$"$VAN_RES_REPO_UP"_COMMIT")
+  export MY_REPO_COMMIT_MESSAGE=$(eval echo "$"$VAN_RES_REPO_UP"_COMMIT_MESSAGE")
+  export MY_REPO_COMMITTER=$(eval echo "$"$VAN_RES_REPO_UP"_COMMITTER")  
+  #export MY_REPO_PULL_REQUEST=$(eval echo "$"$VAN_RES_REPO_UP"_PULL_REQUEST")
+  #export MY_REPO_BASE_BRANCH=$(eval echo "$"$VAN_RES_REPO_UP"_BASE_BRANCH")
+  #export MY_REPO_HEAD_BRANCH=$(eval echo "$"$VAN_RES_REPO_UP"_HEAD_BRANCH")
+
   export VAN_DH_USERNAME=$(eval echo "$"$VAN_RES_DH_INT_STR"_USERNAME")
   export VAN_DH_PASSWORD=$(eval echo "$"$VAN_RES_DH_INT_STR"_PASSWORD")
   export VAN_DH_EMAIL=$(eval echo "$"$VAN_RES_DH_INT_STR"_EMAIL")
@@ -53,17 +35,27 @@ set_context() {
  # echo "CURR_JOB=$CURR_JOB"
  # echo "RES_VER=$RES_VER"
  # echo "RES_DH=$RES_DH"
-  echo "VAN_RES_REPO=$VAN_RES_REPO"
+  echo "MY_RES_REPO=$VAN_RES_REPO"
  # echo "RES_VER_UP=$RES_VER_UP"
  # echo "RES_DH_UP=$RES_DH_UP"
  # echo "RES_DH_INT_STR=$RES_DH_INT_STR"
-  echo "VAN_RES_REPO_UP=$VAN_RES_REPO_UP"
-  echo "VAN_RES_REPO_STATE=$VAN_RES_REPO_STATE"
+  echo "MY_RES_REPO_UP=$VAN_RES_REPO_UP"
+  echo "MY_RES_REPO_STATE=$VAN_RES_REPO_STATE"
 
-  echo "VAN_REPO_RESO_VERSION=$VAN_VERSION"
-  echo "VAN_DH_USERNAME=$VAN_DH_USERNAME"
-  echo "VAN_DH_PASSWORD=${#VAN_DH_PASSWORD}" #show only count
-  echo "VAN_DH_EMAIL=$VAN_DH_EMAIL"
+  echo "MY_REPO_RESO_VERSION=$VAN_VERSION"
+  
+  echo MY_BRANCH=$MY_REPO_BRANCH
+  echo MY_COMMIT=$MY_REPO_COMMIT
+  echo MY_COMMIT_MESSAGE=$MY_REPO_COMMIT_MESSAGE
+  echo MY_RESO_COMMITER=$MY_REPO_COMMITTER
+  #echo MY_RESO_PULL_REQUEST=$MY_REPO_PULL_REQUEST
+  #echo MY_RESO_BASE_BRANCH=$MY_REPO_BASE_BRANCH
+  #echo MY_RESO_HEAD_BRANCH=$MY_REPO_HEAD_BRANCH
+
+
+  echo "MY_DH_USERNAME=$VAN_DH_USERNAME"
+  echo "MY_DH_PASSWORD_LENGTH=${#VAN_DH_PASSWORD}" #show only count
+  echo "MY_DH_EMAIL=$VAN_DH_EMAIL"
 }
 
 get_image_list() {
@@ -72,8 +64,8 @@ get_image_list() {
   export VAN_IMAGE_NAMES_SPACED=$(eval echo $(tr '\n' ' ' < imgs.txt))
   popd
 
-  echo "VAN_IMAGE_NAMES=$VAN_IMAGE_NAMES"
-  echo "VAN_IMAGE_NAMES_SPACED=$VAN_IMAGE_NAMES_SPACED"
+  echo "MY_IMAGE_NAMES=$VAN_IMAGE_NAMES"
+  echo "MY_IMAGE_NAMES_SPACED=$VAN_IMAGE_NAMES_SPACED"
 
   # create a state file so that next job can pick it up
   echo "versionName=$VAN_REPO_RESO_VERSION" > /build/state/$CURR_JOB.env #adding version state
