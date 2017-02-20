@@ -88,7 +88,7 @@ set_context() {
   echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT INTEGRATION ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 }
-echo "<<<<<<<<<<<<<<<<<<<<<<========== PARAMS =============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+echo "<<<<<<<<<<<<<<<<<<<<<<========== PARAMS =============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 export RES_PARAMS="test_params1"
 export RES_PARAMS_UP=$(echo $RES_PARAMS | awk '{print toupper($0)}')
 export RES_PARAMS_STR=$RES_PARAMS_UP"_PARAMS"
