@@ -1,8 +1,6 @@
 shippabledocker/ship_plv2nod
 shippabledocker/ship_plv2php
-shippabledocker/ship_plv2jav
-shippabledocker/ship_plv2pyt
+
 shippabledocker/plv2nod
 shippabledocker/plv2php
-shippabledocker/plv2jav
-shippabledocker/plv2pyt
+
