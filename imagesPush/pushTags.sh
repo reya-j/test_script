@@ -99,7 +99,7 @@ echo RES_PARAMS_STR=$RES_PARAMS_STR
 echo USER_PARAM=$USER_PARAM
 echo SEC_PARAM=$SEC_PARAM
 
-echo "<<<<<<<<<<<<<<<<<<<<<<========== those were my env's ===============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+echo "<<<<<<<<<<<<<<<<<<<<<<========== those were my env's ===============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 get_image_list() {
   pushd "$VAN_RES_REPO_STATE/imagesPush"
   export VAN_IMAGE_NAMES=$(cat imgs.txt)
