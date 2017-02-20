@@ -1,12 +1,12 @@
 #!/bin/bash -e
 
 export VAN_CURR_JOB="push_image_tag"
-export VAN_RES_VER="ship_ver"
+###### remove this export VAN_RES_VER="ship_ver"
 export VAN_RES_DH="ship_dh"
 export VAN_RES_REPO="scriptami_repo"
 
 # since resources here have dashes Shippable replaces them and UPPER cases them
-export VAN_RES_VER_UP=$(echo ${VAN_RES_VER//-/} | awk '{print toupper($0)}')
+###### remove this export VAN_RES_VER_UP=$(echo ${VAN_RES_VER//-/} | awk '{print toupper($0)}')
 
 # get dockerhub EN string
 export VAN_RES_DH_UP=$(echo $VAN_RES_DH | awk '{print toupper($0)}')
@@ -44,7 +44,8 @@ echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT JOBS AND BUILDS ===
 
 echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ABOUT GITREPO ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 set_context() {
-  export VAN_VERSION=$(eval echo "$"$VAN_RES_VER_UP"_VERSIONNAME")
+ ###### remove this  export VAN_VERSION=$(eval echo "$"$VAN_RES_VER_UP"_VERSIONNAME")
+  export VAN_VERSION=$(eval echo "$"$VAN_RES_REPO_UP"_VERSIONNUMBER")
   
   export MY_REPO_BRANCH=$(eval echo "$"$VAN_RES_REPO_UP"_BRANCH")
   export MY_REPO_COMMIT=$(eval echo "$"$VAN_RES_REPO_UP"_COMMIT")
