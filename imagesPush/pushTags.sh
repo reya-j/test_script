@@ -42,7 +42,7 @@ echo $MY_JOBNAME_MESSAGE
 
 echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT JOBS AND BUILDS ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
-
+echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ABOUT GITREPO ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 set_context() {
   export VAN_VERSION=$(eval echo "$"$VAN_RES_VER_UP"_VERSIONNAME")
   
@@ -77,11 +77,15 @@ set_context() {
   #echo MY_RESO_PULL_REQUEST=$MY_REPO_PULL_REQUEST
   #echo MY_RESO_BASE_BRANCH=$MY_REPO_BASE_BRANCH
   #echo MY_RESO_HEAD_BRANCH=$MY_REPO_HEAD_BRANCH
+  echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT GITREPO ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
+  echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ABOUT INTEGRATION ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
   echo "MY_DH_USERNAME=$VAN_DH_USERNAME"
   echo "MY_DH_PASSWORD_LENGTH=${#VAN_DH_PASSWORD}" #show only count
   echo "MY_DH_EMAIL=$VAN_DH_EMAIL"
+  echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT INTEGRATION ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
 }
 
 get_image_list() {
