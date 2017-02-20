@@ -1,6 +1,31 @@
 #!/bin/bash -e
 
-#export DOCKERHUB_ORG=drydock
+echo 'test-script for runsh1'     
+export CURR_REPO_RESO="scriptami_repo"
+export CURR_REPO_RESO_UP=$(echo ${CURR_REPO_RESO//-/} | awk '{print toupper($0)}')
+
+echo "<===About resource repo===>"
+export REPO_RESO_VERSION=$(eval echo "$"$CURR_REPO_RESO_UP"_VERSIONNUMBER")
+export MY_REPO_BRANCH=$(eval echo "$"$CURR_REPO_RESO_UP"_BRANCH")
+export MY_REPO_COMMIT=$(eval echo "$"$CURR_REPO_RESO_UP"_COMMIT")
+export MY_REPO_COMMIT_MESSAGE=$(eval echo "$"$CURR_REPO_RESO_UP"_COMMIT_MESSAGE")
+export MY_REPO_COMMITTER=$(eval echo "$"$CURR_REPO_RESO_UP"_COMMITTER")
+#export MY_REPO_PULL_REQUEST=$(eval echo "$"$CURR_REPO_RESO_UP"_PULL_REQUEST")
+#export MY_REPO_BASE_BRANCH=$(eval echo "$"$CURR_REPO_RESO_UP"_BASE_BRANCH")
+#export MY_REPO_HEAD_BRANCH=$(eval echo "$"$CURR_REPO_RESO_UP"_HEAD_BRANCH")
+
+echo REPO_RESOURCE_VERSION=$REPO_RESO_VERSION
+echo MY_BRANCH=$MY_REPO_BRANCH
+echo MY_COMMIT=$MY_REPO_COMMIT
+echo MY_COMMIT_MESSAGE=$MY_REPO_COMMIT_MESSAGE
+echo MY_RESO_COMMITER=$MY_REPO_COMMITTER
+#echo MY_RESO_PULL_REQUEST=$MY_REPO_PULL_REQUEST
+#echo MY_RESO_BASE_BRANCH=$MY_REPO_BASE_BRANCH
+#echo MY_RESO_HEAD_BRANCH=$MY_REPO_HEAD_BRANCH
+
+echo "<===done for reso repo===>"
+
+
 
 export VAN_CURR_JOB="push_image_tag"
 export VAN_RES_VER="ship_ver"
