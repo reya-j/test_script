@@ -101,6 +101,10 @@ echo SEC_PARAM=$SEC_PARAM
 
 echo "<<<<<<<<<<<<<<<<<<<<<<========== those are my env ===============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<========= VERSIONS ===========>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+echo PACKER_VERSION=$(packer version)
+echo TERRAFORM_VERSION=$(terraform version)
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<========= THATS ABOUT VERSIONS ===========>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 get_image_list() {
   pushd "$VAN_RES_REPO_STATE/imagesPush"
   export VAN_IMAGE_NAMES=$(cat imgs.txt)
