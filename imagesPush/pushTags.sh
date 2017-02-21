@@ -4,6 +4,7 @@ export VAN_CURR_JOB="push_image_tag"
 ###### remove this export VAN_RES_VER="ship_ver"
 export VAN_RES_DH="ship_dh"
 export VAN_RES_REPO="scriptami_repo"
+export RES_IMG_OUT="test_out_img"
 
 # since resources here have dashes Shippable replaces them and UPPER cases them
 ###### remove this export VAN_RES_VER_UP=$(echo ${VAN_RES_VER//-/} | awk '{print toupper($0)}')
@@ -15,6 +16,11 @@ export VAN_RES_DH_INT_STR=$VAN_RES_DH_UP"_INTEGRATION"
 # since resources here have dashes Shippable replaces them and UPPER cases them
 export VAN_RES_REPO_UP=$(echo $VAN_RES_REPO | awk '{print toupper($0)}')
 export VAN_RES_REPO_STATE=$(eval echo "$"$VAN_RES_REPO_UP"_STATE")
+
+
+export RES_IMG_OUT_UP=$(echo $RES_IMG_OUT | awk '{print toupper($0)}')
+export RES_IMG_OUT_VERSION=$(eval echo "$"$RES_IMG_OUT_UP"_VERSIONNUMBER")
+echo RES_IMG_OUT_VERSION=$RES_IMG_OUT_VERSION
 
 echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ABOUT JOBS AND BUILDS ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo RESO_ID_RUNSH_REPO=$RESOURCE_ID
@@ -57,7 +63,7 @@ set_context() {
 
   export VAN_DH_USERNAME=$(eval echo "$"$VAN_RES_DH_INT_STR"_USERNAME")
   export VAN_DH_PASSWORD=$(eval echo "$"$VAN_RES_DH_INT_STR"_PASSWORD")
-  export VAN_DH_EMAIL=$(eval echo "$"$VAN_RES_DH_INT_STR"_EMAIL")
+ # export VAN_DH_EMAIL=$(eval echo "$"$VAN_RES_DH_INT_STR"_EMAIL")
 
  # echo "CURR_JOB=$CURR_JOB"
  # echo "RES_VER=$RES_VER"
@@ -119,6 +125,18 @@ get_image_list() {
   echo "VAN_IMAGE_NAMES=$VAN_IMAGE_NAMES_SPACED" >> /build/state/$VAN_CURR_JOB.env
 }
 
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<===================== TEST FOR OUT RESOURCE N CURR JOB STATE ====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+create_out_state() {
+  echo "Creating a state file for $RES_IMAGE_OUT"
+  echo versionName=$MY_REPO_RESO_VERSION > "$JOB_STATE/$RES_IMAGE_OUT.env"
+  echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
+
+  echo "Creating a state file for $VAN_CURR_JOB"
+  echo versionName=$MY_REPO_RESO_VERSION > "$JOB_STATE/$VAN_CURR_JOB.env"
+  echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
+}
+echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<===================== TEST FOR OUT RESOURCE N CURR JOB STATE ====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
 dockerhub_login() {
   echo "Logging in to Dockerhub"
   echo "----------------------------------------------"
@@ -128,6 +146,7 @@ dockerhub_login() {
 main() {
   set_context
   get_image_list
+  create_out_state
   dockerhub_login
 }
 
