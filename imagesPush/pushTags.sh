@@ -131,9 +131,12 @@ dockerhub_login() {
   sudo docker login -u $VAN_DH_USERNAME -p $VAN_DH_PASSWORD -e $VAN_DH_EMAIL
 }
 
-echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<===================== TEST FOR OUT RESOURCE N CURR JOB STATE ====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
+
 create_out_state() {
+
   echo "Creating a state file for $RES_IMG_OUT_UP"
+  echo "MY_REPO_RESO_VERSION=$MY_REPO_RESO_VERSION"
+  echo "MY_COMMIT=$MY_REPO_COMMIT"
   echo versionName=$MY_REPO_RESO_VERSION > "$JOB_STATE/$RES_IMAGE_OUT.env"
   echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
 
@@ -141,9 +144,6 @@ create_out_state() {
   echo versionName=$MY_REPO_RESO_VERSION > "$JOB_STATE/$VAN_CURR_JOB.env"
   echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
 }
-echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<===================== TEST FOR OUT RESOURCE N CURR JOB STATE ====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-
-
 
 main() {
   set_context
