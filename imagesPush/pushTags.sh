@@ -145,10 +145,9 @@ create_out_state() {
   echo "Creating a state file for $VAN_CURR_JOB"
   echo versionName=$VAN_VERSION > "$JOB_STATE/$VAN_CURR_JOB.env"
   echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
-  cp /build/state/$VAN_CURR_JOB.env test.txt
-  #cat /build/state/$VAN_CURR_JOB.env >> test.txt
-  #cat IN/scriptami_repo/gitRepo/imagesPush/test.txt
-  
+  echo "<<<<<<<<<<<<<<<==========my job env==============>>>>>>>>>>>>>>>>>>>>>>>"
+  cat "$JOB_STATE/$VAN_CURR_JOB.env"
+  echo "<<<<<<<<<<<<<<<<<<=============== done about my job env ================>>>>>>>>>>>>>>"
  # echo versionName=$VAN_VERSION > "$JOB_STATE/$VAN_CURR_JOB.env"
  # echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
 }
