@@ -139,7 +139,7 @@ create_out_state() {
   echo "MY_REPO_RESO_VERSION=$VAN_VERSION"
   echo "MY_COMMIT=$MY_REPO_COMMIT"
   echo "MY_J_STATE=$JOB_STATE"
-  echo "MY_I_OUT=$RES_IMAGE_OUT"
+  #echo "MY_I_OUT=$RES_IMAGE_OUT"
   echo versionName=$VAN_VERSION > "$JOB_STATE/$RES_IMAGE_OUT.env"
   echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
   
