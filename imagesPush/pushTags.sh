@@ -89,7 +89,7 @@ set_context() {
 
 }
 echo "<<<<<<<<<<<<<<<<<<<<<<========== PARAMS =============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
-export RES_PARAMS="test_params1"
+export RES_PARAMS="test_params"
 export RES_PARAMS_UP=$(echo $RES_PARAMS | awk '{print toupper($0)}')
 export RES_PARAMS_STR=$RES_PARAMS_UP"_PARAMS"
 export USER_PARAM=$(eval echo "$"$RES_PARAMS_STR"_TEST")
