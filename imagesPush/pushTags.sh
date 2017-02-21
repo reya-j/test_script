@@ -1,7 +1,7 @@
 #!/bin/bash -e
 
 export VAN_CURR_JOB="push_image_tag"
-export VAN_PRE_CURR_JOB="gitrepo_pre_ver"
+export VAN_PRE_JOB_VER="gitrepo_pre_ver"
 ###### remove this export VAN_RES_VER="ship_ver"
 export VAN_RES_DH="ship_dh"
 export VAN_RES_REPO="scriptami_repo"
@@ -145,10 +145,10 @@ create_out_state() {
   
   echo "Creating a state file for $VAN_CURR_JOB"
   echo versionName=$VAN_VERSION > "$JOB_STATE/$VAN_CURR_JOB.env"
-  echo CURRENT=current_gitrepo_versionnumber > "$JOB_STATE/$VAN_CURR_JOB.env"
+  #echo CURRENT=current_gitrepo_versionnumber > "$JOB_STATE/$VAN_CURR_JOB.env"
   cat "$JOB_STATE/$VAN_CURR_JOB.env"
 
-  echo "Creating a previous state file for $VAN_PRE_CURR_JOB"
+  echo "Creating a previous state file for $VAN_PRE_JOB_VER"
   echo versionName=$VAN_VERSION > "$JOB_PREVIOUS_STATE/$VAN_PRE_JOB_VER.env"
   echo PREVIOUS=previous_gitrepo_versinnumber > "$JOB_PREVIOUS_STATE/$VAN_PRE_JOB_VER.env"
   cat "$JOB_PREVIOUS_STATE/$VAN_CURR_JOB_VER.env"
