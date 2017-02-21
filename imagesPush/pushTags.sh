@@ -149,7 +149,7 @@ main() {
   set_context
   get_image_list
   dockerhub_login
-  create_out_state  
+  #create_out_state  
 }
 
 main
