@@ -140,15 +140,15 @@ create_out_state() {
   echo "MY_J_STATE=$JOB_STATE"
   echo "MY_I_OUT=$RES_IMAGE_OUT"
   echo versionName=$VAN_VERSION > "$JOB_STATE/$RES_IMAGE_OUT.env"
-  echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
+  #echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
   
   echo "Creating a state file for $VAN_CURR_JOB"
   echo versionName=$VAN_VERSION > "$JOB_STATE/$VAN_CURR_JOB.env"
-  echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
+  #echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
   #cat /build/state/$VAN_CURR_JOB.env > curr_runsh_job.txt
   
   echo versionName=$VAN_VERSION > "$JOB_STATE/$VAN_CURR_JOB.env"
-  echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
+  #echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$VAN_CURR_JOB.env"
 }
 
 main() {
