@@ -150,7 +150,7 @@ create_out_state() {
 
   echo "Creating a previous state file for $VAN_PRE_JOB_VER"
   echo versionName=$VAN_VERSION > "$JOB_PREVIOUS_STATE/$VAN_PRE_JOB_VER.env"
-  echo PREVIOUS=previous_gitrepo_versinnumber > "$JOB_PREVIOUS_STATE/$VAN_PRE_JOB_VER.env"
+  #echo PREVIOUS=previous_gitrepo_versinnumber > "$JOB_PREVIOUS_STATE/$VAN_PRE_JOB_VER.env"
   cat "$JOB_PREVIOUS_STATE/$VAN_CURR_JOB_VER.env"
     
 }
