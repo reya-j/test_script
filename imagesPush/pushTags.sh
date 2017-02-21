@@ -21,7 +21,7 @@ export VAN_RES_REPO_STATE=$(eval echo "$"$VAN_RES_REPO_UP"_STATE")
 export RES_IMG_OUT_UP=$(echo $RES_IMG_OUT | awk '{print toupper($0)}')
 export RES_IMG_OUT_VERSION=$(eval echo "$"$RES_IMG_OUT_UP"_VERSIONNUMBER")
 echo RES_IMG_OUT_VERSION=$RES_IMG_OUT_VERSION
-
+echo RES_IMG_OUT_UP=$RES_IMG_OUT_UP
 echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ABOUT JOBS AND BUILDS ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 echo RESO_ID_RUNSH_REPO=$RESOURCE_ID
 echo MY_JOB_NAME=$JOB_NAME
@@ -127,7 +127,7 @@ get_image_list() {
 
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<===================== TEST FOR OUT RESOURCE N CURR JOB STATE ====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 create_out_state() {
-  echo "Creating a state file for $RES_IMAGE_OUT"
+  echo "Creating a state file for $RES_IMG_OUT_UP"
   echo versionName=$MY_REPO_RESO_VERSION > "$JOB_STATE/$RES_IMAGE_OUT.env"
   echo commitSHA=$MY_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
 
