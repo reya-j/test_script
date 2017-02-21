@@ -63,7 +63,7 @@ set_context() {
 
   export VAN_DH_USERNAME=$(eval echo "$"$VAN_RES_DH_INT_STR"_USERNAME")
   export VAN_DH_PASSWORD=$(eval echo "$"$VAN_RES_DH_INT_STR"_PASSWORD")
- # export VAN_DH_EMAIL=$(eval echo "$"$VAN_RES_DH_INT_STR"_EMAIL")
+  export VAN_DH_EMAIL=$(eval echo "$"$VAN_RES_DH_INT_STR"_EMAIL")
 
  # echo "CURR_JOB=$CURR_JOB"
  # echo "RES_VER=$RES_VER"
@@ -90,7 +90,7 @@ set_context() {
 
   echo "MY_DH_USERNAME=$VAN_DH_USERNAME"
   echo "MY_DH_PASSWORD_LENGTH=${#VAN_DH_PASSWORD}" #show only count
-  echo "MY_DH_EMAIL=$VAN_DH_EMAIL"
+ # echo "MY_DH_EMAIL=$VAN_DH_EMAIL"
   echo "<<<<<<<<<<<<<<<<<<<<<<============== THIS IS ALL ABOUT INTEGRATION ==============>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
 }
