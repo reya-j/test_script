@@ -4,7 +4,7 @@ export VAN_CURR_JOB="push_image_tag"
 ###### remove this export VAN_RES_VER="ship_ver"
 export VAN_RES_DH="ship_dh"
 export VAN_RES_REPO="scriptami_repo"
-export RES_IMG_OUT="test_out_img"
+export RES_IMAGE_OUT="test_out_img"
 
 # since resources here have dashes Shippable replaces them and UPPER cases them
 ###### remove this export VAN_RES_VER_UP=$(echo ${VAN_RES_VER//-/} | awk '{print toupper($0)}')
