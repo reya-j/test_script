@@ -125,6 +125,12 @@ get_image_list() {
   echo "VAN_IMAGE_NAMES=$VAN_IMAGE_NAMES_SPACED" >> /build/state/$VAN_CURR_JOB.env
 }
 
+dockerhub_login() {
+  echo "Logging in to Dockerhub"
+  echo "----------------------------------------------"
+  sudo docker login -u $VAN_DH_USERNAME -p $VAN_DH_PASSWORD -e $VAN_DH_EMAIL
+}
+
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<===================== TEST FOR OUT RESOURCE N CURR JOB STATE ====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 create_out_state() {
   echo "Creating a state file for $RES_IMG_OUT_UP"
@@ -137,17 +143,13 @@ create_out_state() {
 }
 echo "<<<<<<<<<<<<<<<<<<<<<<<<<<<===================== TEST FOR OUT RESOURCE N CURR JOB STATE ====================>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"
 
-dockerhub_login() {
-  echo "Logging in to Dockerhub"
-  echo "----------------------------------------------"
-  sudo docker login -u $VAN_DH_USERNAME -p $VAN_DH_PASSWORD -e $VAN_DH_EMAIL
-}
+
 
 main() {
   set_context
   get_image_list
-  create_out_state
   dockerhub_login
+  create_out_state  
 }
 
 main
