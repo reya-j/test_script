@@ -108,8 +108,8 @@ create_out_state() {
   echo versionName=$TEST_VERSION > "$JOB_STATE/$TEST_CURR_JOB.env"
   cat "$JOB_STATE/$TEST_CURR_JOB.env"
 
-  echo "-----> Creating a previous state file for $VAN_PRE_JOB_VER"
-  cat "$JOB_PREVIOUS_STATE/$VAN_CURR_JOB.env"
+  echo "-----> Creating a previous state file for $TEST_CURR_JOB"
+  cat "$JOB_PREVIOUS_STATE/$TEST_CURR_JOB.env"
     
 }
 
