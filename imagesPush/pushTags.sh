@@ -9,12 +9,19 @@ export RES_IMAGE_OUT="test_out_img"
 export TEST_RES_REPO_UP=$(echo $TEST_RES_REPO | awk '{print toupper($0)}')
 export TEST_RES_REPO_STATE=$(eval echo "$"$TEST_RES_REPO_UP"_STATE")
 
-
+#get dockerhub EN string
+export TEST_RES_DH_UP=$(echo $TEST_RES_DH | awk '{print toupper($0)}')
+export TEST_RES_DH_INT_STR=$TEST_RES_DH_UP"_INTEGRATION"
+  
 export RES_IMAGE_OUT_UP=$(echo $RES_IMAGE_OUT | awk '{print toupper($0)}')
 export RES_IMAGE_OUT_VERSION=$(eval echo "$"$RES_IMAGE_OUT_UP"_VERSIONNUMBER")
 echo "-----> Out image resource"
 echo RES_IMG_OUT_VERSION=$RES_IMAGE_OUT_VERSION
 echo RES_IMG_OUT_UP=$RES_IMAGE_OUT_UP
+
+echo "-----> Installed package versions"
+echo PACKER_VERSION=$(packer version)
+echo TERRAFORM_VERSION=$(terraform --version)
 
 echo "-----> About buildsJob"
 echo RESO_ID_RUNSH_REPO=$RESOURCE_ID
@@ -49,9 +56,6 @@ set_context() {
   #export MY_REPO_BASE_BRANCH=$(eval echo "$"$VAN_RES_REPO_UP"_BASE_BRANCH")
   #export MY_REPO_HEAD_BRANCH=$(eval echo "$"$VAN_RES_REPO_UP"_HEAD_BRANCH")
 
-  export TEST_DH_USERNAME=$(eval echo "$"$TEST_RES_DH_INT_STR"_USERNAME")
-  export TEST_DH_PASSWORD=$(eval echo "$"$TEST_RES_DH_INT_STR"_PASSWORD")
-  export TEST_DH_EMAIL=$(eval echo "$"$TEST_RES_DH_INT_STR"_EMAIL")
 
 
   echo TEST_RES_REPO=$TEST_RES_REPO
@@ -81,17 +85,15 @@ get_params() {
   echo SEC_PARAM=$SEC_PARAM
 }
 
-echo "-----> Installed package versions"
-echo PACKER_VERSION=$(packer version)
-echo TERRAFORM_VERSION=$(terraform version)
-
 dockerhub_login() {
-  echo "-----> Logging in to Dockerhub"
-  #get dockerhub EN string
-  export TEST_RES_DH_UP=$(echo $TEST_RES_DH | awk '{print toupper($0)}')
-  export TEST_RES_DH_INT_STR=$TEST_RES_DH_UP"_INTEGRATION"
-  echo "TEST_DH_USERNAME=$TEST_DH_USERNAME"
-  echo "TEST_DH_PASSWORD_LENGTH=${#TEST_DH_PASSWORD}" #show only count
+  echo "-----> Logging in to Dockerhub" 
+  
+  export TEST_DH_USERNAME=$(eval echo "$"$TEST_RES_DH_INT_STR"_USERNAME")
+  export TEST_DH_PASSWORD=$(eval echo "$"$TEST_RES_DH_INT_STR"_PASSWORD")
+  export TEST_DH_EMAIL=$(eval echo "$"$TEST_RES_DH_INT_STR"_EMAIL")
+  
+  echo TEST_DH_USERNAME=$TEST_DH_USERNAME
+  echo TEST_DH_PASSWORD_LENGTH=${#TEST_DH_PASSWORD} #show only count
   sudo docker login -u $TEST_DH_USERNAME -p $TEST_DH_PASSWORD -e $TEST_DH_EMAIL
 }
 
@@ -113,9 +115,10 @@ create_out_state() {
 
 main() {
   set_context
+  get_params
   dockerhub_login
   create_out_state  
-  get_params
+  
 }
 
 main
