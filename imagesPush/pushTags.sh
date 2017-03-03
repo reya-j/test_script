@@ -1,5 +1,5 @@
 #!/bin/bash -e
-
+sleep 4m
 export TEST_CURR_JOB="push_image_tag"
 export TEST_RES_DH="ship_dh"
 export TEST_RES_REPO="scriptami_repo"
@@ -70,7 +70,7 @@ set_context() {
   #echo TEST_RESO_PULL_REQUEST=$TEST_REPO_PULL_REQUEST
   #echo TEST_RESO_BASE_BRANCH=$TEST_REPO_BASE_BRANCH
   #echo TEST_RESO_HEAD_BRANCH=$TEST_REPO_HEAD_BRANCH
-  sleep 4m
+  
 }
 
 get_params() {
