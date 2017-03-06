@@ -109,11 +109,11 @@ dockerhub_login() {
 create_out_state() {
 
 
-  echo "-----> Creating a state file for $RES_IMG_OUT_UP"  
+  echo "-----> Creating a state file for $RES_IMAGE_OUT_UP"  
   echo versionName=$TEST_VERSION > "$JOB_STATE/$RES_IMAGE_OUT.env"
   echo commitSHA=$TEST_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
   
-  echo "-----> Creating a state file for $RES_IMG_OUT_UP2"  
+  echo "-----> Creating a state file for $RES_IMAGE_OUT_UP2"  
   echo versionName=$TEST_VERSION > "$JOB_STATE/$RES_IMAGE_OUT2.env"
   echo commitSHA=$TEST_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT2.env"
   
