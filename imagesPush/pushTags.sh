@@ -122,7 +122,7 @@ create_out_state() {
   cat "$JOB_STATE/$TEST_CURR_JOB.env"
 
   echo "-----> Creating a previous state file for $TEST_CURR_JOB"
-  cat "$JOB_PREVIOUS_STATE/$TEST_CURR_JOB.env"
+  cat "$JOB_PREVIOUS_STATE/$TEST_CURR_JOB.env"  
     
 }
 
