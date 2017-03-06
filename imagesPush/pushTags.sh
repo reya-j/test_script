@@ -4,6 +4,7 @@ export TEST_CURR_JOB="push_image_tag"
 export TEST_RES_DH="ship_dh"
 export TEST_RES_REPO="scriptami_repo"
 export RES_IMAGE_OUT="test_out_img"
+export RES_IMAGE_OUT2="test_out_img2"
 
 # since resources here have dashes Shippable replaces them and UPPER cases them
 export TEST_RES_REPO_UP=$(echo $TEST_RES_REPO | awk '{print toupper($0)}')
@@ -18,6 +19,12 @@ export RES_IMAGE_OUT_VERSION=$(eval echo "$"$RES_IMAGE_OUT_UP"_VERSIONNUMBER")
 echo "-----> Out image resource"
 echo RES_IMG_OUT_VERSION=$RES_IMAGE_OUT_VERSION
 echo RES_IMG_OUT_UP=$RES_IMAGE_OUT_UP
+
+export RES_IMAGE_OUT_UP2=$(echo $RES_IMAGE_OUT2 | awk '{print toupper($0)}')
+export RES_IMAGE_OUT_VERSION2=$(eval echo "$"$RES_IMAGE_OUT_UP2"_VERSIONNUMBER")
+echo "-----> Out second image resource"
+echo RES_IMG_OUT_VERSION=$RES_IMAGE_OUT_VERSION2
+echo RES_IMG_OUT_UP=$RES_IMAGE_OUT_UP2
 
 echo "-----> Installed package versions"
 echo PACKER_VERSION=$(packer version)
@@ -106,8 +113,11 @@ create_out_state() {
   echo versionName=$TEST_VERSION > "$JOB_STATE/$RES_IMAGE_OUT.env"
   echo commitSHA=$TEST_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT.env"
   
+  echo "-----> Creating a state file for $RES_IMG_OUT_UP2"  
+  echo versionName=$TEST_VERSION > "$JOB_STATE/$RES_IMAGE_OUT2.env"
+  echo commitSHA=$TEST_REPO_COMMIT >> "$JOB_STATE/$RES_IMAGE_OUT2.env"
+  
   echo "-----> Creating a state file for $TEST_CURR_JOB"
-  echo TEST_OUT_IMG_VERSION=$TEST_VERSION
   echo versionName=$TEST_VERSION > "$JOB_STATE/$TEST_CURR_JOB.env"
   cat "$JOB_STATE/$TEST_CURR_JOB.env"
 
