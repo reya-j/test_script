@@ -1,5 +1,4 @@
 #!/bin/bash -e
-cs ps
 export TEST_CURR_JOB="push_image_tag"
 export TEST_RES_DH="ship_dh"
 export TEST_RES_REPO="scriptami_repo"
