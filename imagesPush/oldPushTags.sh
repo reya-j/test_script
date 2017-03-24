@@ -133,7 +133,6 @@ dockerhub_login() {
 
 
 create_out_state() {
-
   echo "Creating a state file for $RES_IMG_OUT_UP"
   echo "MY_REPO_RESO_VERSION=$VAN_VERSION"
   echo "MY_COMMIT=$MY_REPO_COMMIT"
