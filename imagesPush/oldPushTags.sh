@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-export VAN_CURR_JOB="push_image_tag"
+export VAN_CURR_JOB="push_image_tag2"
 export VAN_PRE_JOB_VER="mytest_previous_state"
 ###### remove this export VAN_RES_VER="ship_ver"
 export VAN_RES_DH="ship_dh"
