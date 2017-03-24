@@ -104,7 +104,6 @@ dockerhub_login() {
   sudo docker login -u $TEST_DH_USERNAME -p $TEST_DH_PASSWORD -e $TEST_DH_EMAIL
 }
 
-
 create_out_state() {
 
   echo "-----> Creating a state file for $RES_IMAGE_OUT_UP"  
