@@ -18,7 +18,6 @@ export VAN_RES_DH_INT_STR=$VAN_RES_DH_UP"_INTEGRATION"
 export VAN_RES_REPO_UP=$(echo $VAN_RES_REPO | awk '{print toupper($0)}')
 export VAN_RES_REPO_STATE=$(eval echo "$"$VAN_RES_REPO_UP"_STATE")
 
-
 export RES_IMAGE_OUT_UP=$(echo $RES_IMAGE_OUT | awk '{print toupper($0)}')
 export RES_IMAGE_OUT_VERSION=$(eval echo "$"$RES_IMAGE_OUT_UP"_VERSIONNUMBER")
 echo RES_IMG_OUT_VERSION=$RES_IMAGE_OUT_VERSION
