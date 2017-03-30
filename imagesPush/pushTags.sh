@@ -94,7 +94,7 @@ get_params() {
 dockerhub_login() {
   echo "-----> Logging in to Dockerhub" 
   
-  export TEST_DH_USERNAME=$(eval echo "$"$TEST_RES_DH_INT_STR"_USERNAME")
+  export TEST_DH_USERNAME=$(eval echo "$"$TEST_RES_DH_INT_STR"_USER") #NAME
   export TEST_DH_PASSWORD=$(eval echo "$"$TEST_RES_DH_INT_STR"_PASSWORD")
   export TEST_DH_EMAIL=$(eval echo "$"$TEST_RES_DH_INT_STR"_EMAIL")
   
