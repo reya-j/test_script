@@ -1,6 +1,6 @@
 #!/bin/bash -e
 
-echo 'sample-script for runsh1!'     
+echo 'sample-script for runsh1!!'     
 export CURR_REPO_RESO=script_repo
 export CURR_REPO_RESO_UP=$(echo ${CURR_REPO_RESO//-/} | awk '{print toupper($0)}')
 
